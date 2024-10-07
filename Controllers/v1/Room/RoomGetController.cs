@@ -45,8 +45,7 @@ namespace PruebaNet_ValeriaPiedrahita.Controllers.v1.Room
             return Ok(rooms);
         }
 
-        [HttpGet]
-        [Route("status")]
+        [HttpGet("status")]
 
         [SwaggerOperation(
             Summary = "Get Room",
@@ -63,8 +62,6 @@ namespace PruebaNet_ValeriaPiedrahita.Controllers.v1.Room
         [HttpGet]
         [Route("ocuppied")]
         [Authorize]
-
-        [Route("status")]
 
         [SwaggerOperation(
             Summary = "Get Room",
