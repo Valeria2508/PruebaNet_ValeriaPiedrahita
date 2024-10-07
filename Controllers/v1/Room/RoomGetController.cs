@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PruebaNet_ValeriaPiedrahita.Repositories;
 
@@ -25,6 +26,7 @@ namespace PruebaNet_ValeriaPiedrahita.Controllers.v1.Room
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<Models.Room>> GetById(int id)
         {
             var room = await _roomRepository.GetById(id);
@@ -36,6 +38,7 @@ namespace PruebaNet_ValeriaPiedrahita.Controllers.v1.Room
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult> GetAllRooms(){
             var rooms = await _roomRepository.GetAll();
             return Ok(rooms);
@@ -51,6 +54,7 @@ namespace PruebaNet_ValeriaPiedrahita.Controllers.v1.Room
 
         [HttpGet]
         [Route("ocuppied")]
+        [Authorize]
         public async Task<IActionResult> GetOcuppiedRooms()
         {
             var rooms = await _roomRepository.GetOccupied();

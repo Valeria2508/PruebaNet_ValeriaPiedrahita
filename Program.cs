@@ -28,6 +28,8 @@ builder.Services.AddSingleton<Utilities>(); //add singleton use the utulities
 
 builder.Services.AddScoped<IRoomRepository, RoomService>();
 builder.Services.AddScoped<IRoomTypeRepository, RoomTypeService>();
+builder.Services.AddScoped<IEmployeerepository, EmployeeService>();
+builder.Services.AddScoped<IGuestRepository, GuestService>();
 
 
 //JWT configuracion
@@ -64,18 +66,16 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "Prueba .Net Hotel",
-        Version = "v1",
-        Description = "API to manage a Hotels database. This version includes CRUD operations",
-        Contact = new OpenApiContact
-        {
-            Name = "Valeria Piedrahita Arbelaez" ,
-            Email = "valetqm2002@gmail.com",
-        }
-    });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "HotelPrueba", Version = "v1" });
 
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "JWT Authorization header using the Bearer scheme. Example: \"Bearer {token}\"",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "Bearer"
+    });
     c.EnableAnnotations();
 
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -93,6 +93,7 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+
 
 
 var app = builder.Build();
