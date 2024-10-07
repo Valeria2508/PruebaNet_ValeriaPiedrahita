@@ -13,7 +13,7 @@ namespace PruebaNet.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20241007132453_Room")]
-    partial class Room
+    partial class TableR
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

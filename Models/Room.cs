@@ -13,7 +13,7 @@ namespace PruebaNet_ValeriaPiedrahita.Models
         [Key] //key for the primary key which is the id
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
-        public int Id { get; set; }
+        public required int Id { get; set; }
 
         [Column("room_number")]
         [Required]

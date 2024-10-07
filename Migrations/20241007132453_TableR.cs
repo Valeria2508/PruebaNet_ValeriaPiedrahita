@@ -5,7 +5,7 @@
 namespace PruebaNet.Migrations
 {
     /// <inheritdoc />
-    public partial class Room : Migration
+    public partial class TableR : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
