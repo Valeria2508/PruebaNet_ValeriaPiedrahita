@@ -1,5 +1,10 @@
+using System.Text;
 using DotNetEnv;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using PruebaNet_ValeriaPiedrahita.Config;
 using PruebaNet_ValeriaPiedrahita.Data;
 
 var builder = WebApplication.CreateBuilder(args);
