@@ -5,14 +5,11 @@ using System.Threading.Tasks;
 
 namespace PruebaNet_ValeriaPiedrahita.DTO.RoomDTO
 {
-    public class RoomDTO
+    public class RoomStatusDTO
     {
         public int Id { get; set; }
         public required string RoomNumber { get; set; }
         public required double PricePerNight { get; set; }
         public required bool Availability { get; set; }
-        public required int MaxOccupancyPerson { get; set; }
-        public required int RoomTypeId { get; set; }
-        public string RoomTypeName { get; set; }
     }
 }

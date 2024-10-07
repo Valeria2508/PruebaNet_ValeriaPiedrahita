@@ -6,6 +6,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using PruebaNet_ValeriaPiedrahita.Config;
 using PruebaNet_ValeriaPiedrahita.Data;
+using PruebaNet_ValeriaPiedrahita.Repositories;
+using PruebaNet_ValeriaPiedrahita.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +26,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseMySql(
 
 builder.Services.AddSingleton<Utilities>(); //add singleton use the utulities
 
-
+builder.Services.AddScoped<IRoomRepository, RoomService>();
+builder.Services.AddScoped<IRoomTypeRepository, RoomTypeService>();
 
 
 //JWT configuracion
@@ -63,9 +66,9 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "TechStore API",
+        Title = "Prueba .Net Hotel",
         Version = "v1",
-        Description = "API for managing a Tech store database. This version includes basic CRUD operations for users, products and categories.",
+        Description = "API to manage a Hotels database. This version includes CRUD operations",
         Contact = new OpenApiContact
         {
             Name = "Valeria Piedrahita Arbelaez" ,
