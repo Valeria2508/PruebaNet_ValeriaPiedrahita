@@ -14,5 +14,10 @@ namespace PruebaNet_ValeriaPiedrahita.DTO.BookingDTO
         public int RoomId { get; set; }
         public int GuestId { get; set; }
         public int EmployeeId { get; set; }
+        public RoomDTO.RoomDTO Room { get; internal set; }
+        public string EmployeeIdName { get; internal set; }
+        public string GuestIdName { get; internal set; }
+        public string RoomIdName { get; internal set; }
+        public double RoomIdCost { get; internal set; }
     }
 }

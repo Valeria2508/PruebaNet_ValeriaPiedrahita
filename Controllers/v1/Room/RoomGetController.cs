@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PruebaNet_ValeriaPiedrahita.Repositories;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace PruebaNet_ValeriaPiedrahita.Controllers.v1.Room
 {
@@ -46,6 +47,13 @@ namespace PruebaNet_ValeriaPiedrahita.Controllers.v1.Room
 
         [HttpGet]
         [Route("status")]
+
+        [SwaggerOperation(
+            Summary = "Get Room",
+            Description = "Returns all rooms and their statuses"
+        )]
+        [SwaggerResponse(200, "Ok: Returns all rooms and states.")]
+        [SwaggerResponse(404, "No Content: There are not room in the database")]
         public async Task<IActionResult> GetStatus()
         {
             var rooms = await _roomRepository.GetStatus();
@@ -55,6 +63,15 @@ namespace PruebaNet_ValeriaPiedrahita.Controllers.v1.Room
         [HttpGet]
         [Route("ocuppied")]
         [Authorize]
+
+        [Route("status")]
+
+        [SwaggerOperation(
+            Summary = "Get Room",
+            Description = "Returns all rooms and their statuses"
+        )]
+        [SwaggerResponse(200, "Ok: Returns all rooms and states.")]
+        [SwaggerResponse(404, "No Content: There are not room in the database")]
         public async Task<IActionResult> GetOcuppiedRooms()
         {
             var rooms = await _roomRepository.GetOccupied();
